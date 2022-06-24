@@ -1,0 +1,14 @@
+server:
+  port: 9090
+  allowedOrigins: ["*"]
+  timeout:
+    idle: 120
+    read: 1
+    write: 1
+    shutdown: 30
+
+mailer:
+  key: #${SENDGRID_API_KEY}
+  from:
+    email: noreply@redox.media
+    name: Admin
