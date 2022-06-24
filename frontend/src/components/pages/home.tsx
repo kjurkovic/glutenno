@@ -1,0 +1,17 @@
+import React from "react";
+
+const Home = () => {
+  return (
+    <div>
+      <p className="text-base text-slate-800">Usprkos svim zdravstvenim rizicima samo 3% oboljelih od celijakije se pravilno liječi. Često treba i 11 godina dok se ne postavi točna dijagnoza bolesti. Mnogi i umiru od posljedica neliječene celijakije. Unatoč takvim podacima, ljudi, ali i zdravstveni radnici, relativno su malo svjesni prisutnosti celijakije kod svojih bolesnika. Brojni i različiti simptomi celijakije, u kombinaciji s malom svjesnosti o njoj, često vode do krivih dijagnoza i ozbiljnih posljedica za zdravlje. Bolje poznavanje ove bolesti i točniji postupci za njeno dijagnosticiranje pridonose njenom češćem otkrivanju. Današnje znanje o celijakiji i održavanju zdravlja s tom bolešću je nedovoljno. U prilog tome govori i podatak da na 1 prepoznatog bolesnika dolazi 7 neprepoznatih, a oboljelih, kako je prethodno rečeno. Problem je i nedovoljna razina kliničke sumnje liječnika na ovu bolest koja može imati teški klinički tijek i ozbiljne posljedice, a prepoznata se liječi lako, i to samo dijetom. Na celijakiju valja misliti češće i raditi skrining mnogo češće nego li se to sada radi.</p>
+      
+      <h3 className="mt-6 text-2xl font-medium">Što je celijakija?</h3>
+      <p className="text-base text-slate-800">Celijakija ili glutenska enteropatija nasljedni je imunološko-posredovani poremećaj koji obilježava trajna nepodnošljivost glutena, bjelančevine pšenice, ječma i raži, a možda i zobi. Jedna je od najčešćih kroničnih gastroenteroloških bolesti.<br />Javit će se u osoba koje imaju nasljednu predispoziciju za ovu bolest, a jelovnik im sadrži proizvode od pšenice, ječma, raži, a vjerojatno i zobi. Oštećenje sluznice tankog crijeva koje dugo traje može rezultirati razvojem vrlo teških i životno ugrožavajućih bolesti. U bolesnika u kojih je bolest prepoznata i liječena bezglutenskom dijetom jednaka je stopi obolijevanja i smrtnosti od teških bolesti kao u zdravih ljudi.</p>
+      
+      <h3 className="mt-6 text-2xl font-medium">Bezglutenska dijeta</h3>
+      <p className="text-base text-slate-800">Bezglutenska dijeta podrazumijeva isključenje iz prehrane proizvoda koji sadrže i najmanje količine glutena. Mora se paziti na skrivene izvore glutena, poput aditiva, konzervansa i različitih stabilizatora koji se mogu naći u industrijski proizvedenoj hrani, lijekovima i nekim sredstvima za održavanje higijene usta. Oštećeno crijevo oboljelog od celijakije ometa iskorištavanje tvari iz hrane. Oštećenje sluznice crijeva nestaje prehranom bezglutenske hrane. Tada celijakija prelazi u stanje organizma koje ne podnosi gluten. Ako na vrijeme započne liječenje strogom bezglutenskom dijetom, osoba može biti zdrava kao i drugi ljudi, pod uvjetom da je na striktnoj bezglutenskoj prehrani cijeli život. To je bolest skrivenih lica i "kameleonskog" ponašanja. U prilog tome govori činjenica da se čak i godinama kod mnogih oboljelih ne vide neposredna pogoršanja od grešaka u prehrani. Simptomi raznih bolesti koje su rezultat prekida bezglutenske dijete dugo mogu biti skriveni. Zbog toga se često javljaju iskušenja o prestanku ili kršenju striktne dijete. Oboljeli pomisle da je celijakija kod njih "prošla", da su ozdravili. Često će takvu krivu informaciju usvojiti ili čuti od svojih najbližih, pa čak i od liječnika.</p>
+    </div>
+  );
+}
+
+export default Home;

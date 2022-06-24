@@ -1,0 +1,65 @@
+version: '3.9'
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: glutenno-postgres
+    environment:
+      - TZ=Europe/Zagreb
+      - POSTGRES_DB=glutenno
+      - POSTGRES_USER=glutenno
+      - POSTGRES_PASSWORD=glutenno
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./database:/docker-entrypoint-initdb.d:ro"
+      - glutenno-pgdata:/var/lib/postgresql/data
+    networks:
+      - local
+  auth-service:
+    image: glutenno-auth
+    container_name: glutenno-auth-service
+    depends_on:
+      - "postgres-db"
+    ports:
+      - "9090:9090"
+    networks:
+      - local
+  recipes-service:
+    image: glutenno-recipes
+    container_name: glutenno-recipes-service
+    depends_on:
+      - "postgres-db"
+    ports:
+      - "9091:9090"
+    networks:
+      - local
+  comments-service:
+    image: glutenno-comments
+    container_name: glutenno-comments-service
+    depends_on:
+      - "postgres-db"
+    ports:
+      - "9092:9090"
+    networks:
+      - local
+  notification-service:
+    image: glutenno-notifications
+    container_name: glutenno-notifications-service
+    depends_on:
+      - "postgres-db"
+    ports:
+      - "9093:9090"
+    networks:
+      - local
+  # frontend-service:
+  #   image: glutenno-frontend
+  #   container_name: glutenno-frontend-service
+  #   ports:
+  #     - "80:9090"
+
+volumes:
+  glutenno-pgdata:
+
+networks:
+  local:
+    driver: bridge

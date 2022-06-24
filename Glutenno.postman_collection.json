@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "59928706-e0f2-450c-81bb-c58af78572b7",
+		"name": "Glutenno",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3446991"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"console.log(jsonData);",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"accessToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kristijan Jurkovic\",\n    \"email\": \"kjurkovic85@gmail.com\",\n    \"password\": \"Password1.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"kjurkovic85@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/auth/forgot-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"console.log(jsonData);",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"accessToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"kjurkovic85@gmail.com\",\n    \"password\": \"Password1.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"kjurkovic85@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/auth/forgot-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"console.log(jsonData);",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"accessToken\", jsonData.accessToken);",
+									"    pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/auth/refresh-token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{authPort}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{authPort}}",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User recipes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test recept\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\n    \"steps\": [\n        {\n            \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt\",\n            \"order\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test recept 1\",\n    \"description\": \"Test recipe desc\",\n    \"steps\": [\n        {\n            \"description\": \"test step desc\",\n            \"order\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes/1c9af1aa-f609-4b96-8e25-5f0dc9dcccbd",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes",
+								"1c9af1aa-f609-4b96-8e25-5f0dc9dcccbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set recipe view",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test recept 1\",\n    \"description\": \"Test recipe desc\",\n    \"steps\": [\n        {\n            \"description\": \"test step desc\",\n            \"order\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes/1c9af1aa-f609-4b96-8e25-5f0dc9dcccbd",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes",
+								"1c9af1aa-f609-4b96-8e25-5f0dc9dcccbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test recept 1\",\n    \"description\": \"Test recipe desc\",\n    \"steps\": [\n        {\n            \"description\": \"test step desc\",\n            \"order\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{recipesPort}}/recipes/a8c7bc56-c8b6-4118-a18a-a78582ad67f5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{recipesPort}}",
+							"path": [
+								"recipes",
+								"a8c7bc56-c8b6-4118-a18a-a78582ad67f5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{commentsPort}}/comments/19a3a7bf-d36c-487a-94f3-b89dd6b4c51c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{commentsPort}}",
+							"path": [
+								"comments",
+								"19a3a7bf-d36c-487a-94f3-b89dd6b4c51c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comments User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{commentsPort}}/comments/19a3a7bf-d36c-487a-94f3-b89dd6b4c51c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{commentsPort}}",
+							"path": [
+								"comments",
+								"19a3a7bf-d36c-487a-94f3-b89dd6b4c51c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Comment text test\",\n    \"resourceId\":\"19a3a7bf-d36c-487a-94f3-b89dd6b4c51c\",\n    \"resourceOwnerId\":\"43116076-b0c8-445d-a08b-a56cd5a98b96\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{commentsPort}}/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{commentsPort}}",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Comment text test modified\",\n    \"resourceId\":\"19a3a7bf-d36c-487a-94f3-b89dd6b4c51c\",\n    \"resourceOwnerId\":\"43116076-b0c8-445d-a08b-a56cd5a98b96\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:{{commentsPort}}/comments/6da03a84-574b-4605-96ac-cc44a8fdd609",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{commentsPort}}",
+							"path": [
+								"comments",
+								"6da03a84-574b-4605-96ac-cc44a8fdd609"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}:{{commentsPort}}/comments/7b3455e9-6bc8-402b-b75d-f48bba0c16f4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "{{commentsPort}}",
+							"path": [
+								"comments",
+								"7b3455e9-6bc8-402b-b75d-f48bba0c16f4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"Kristijan\",\n    \"email\": \"kjurkovic85@gmail.com\",\n    \"text\": \"Bla bla test message\",\n    \"subject\":\"Forgot password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}:9090",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"port": "9090"
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

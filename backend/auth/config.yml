@@ -1,0 +1,30 @@
+server:
+  port: 9090
+  allowedOrigins: ["*"]
+  timeout:
+    idle: 120
+    read: 1
+    write: 1
+    shutdown: 30
+
+database:
+  name: glutenno
+  ip: postgres-db
+  port: 5432
+  schema: auth
+  username: glutenno
+  password: glutenno
+  logger:
+    level: 0 # 0: debug, 1: info, 2: warning, 3: error, 4: none, 5: unknown
+
+authentication:
+  accessTokenExpirationMinutes: 20
+  secretKey: ${JWT_SECRET_KEY}
+
+notification:
+  address: http://notification-service:9090
+
+frontend: 
+  url: http://localhost
+  resetPassword: /reset-password?token=
+  

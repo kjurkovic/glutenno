@@ -1,0 +1,21 @@
+server:
+  port: 9090
+  allowedOrigins: ["*"]
+  timeout:
+    idle: 120
+    read: 1
+    write: 1
+    shutdown: 30
+
+database:
+  name: glutenno
+  ip: postgres-db
+  port: 5432
+  schema: recipes
+  username: glutenno
+  password: glutenno
+  logger:
+    level: 0 # 0: debug, 1: info, 2: warning, 3: error, 4: none, 5: unknown
+
+authorization:
+  address: http://auth-service:9090/user
