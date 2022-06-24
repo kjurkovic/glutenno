@@ -55,7 +55,7 @@ services:
   #   image: glutenno-frontend
   #   container_name: glutenno-frontend-service
   #   ports:
-  #     - "80:9090"
+  #     - "80:80"
 
 volumes:
   glutenno-pgdata:
