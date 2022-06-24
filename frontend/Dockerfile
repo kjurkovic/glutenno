@@ -13,6 +13,3 @@ FROM nginx:mainline
 
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-step /app/build /frontend/build
-
-# EXPOSE 80
-# CMD ["nginx", "-g", "daemon off;"]
